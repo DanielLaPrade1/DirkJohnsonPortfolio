@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Menu, ArrowDownRight, BookOpen, Library, Mail, Phone } from "lucide-react";
+import dirkMainPhoto from "./assets/images/personal/dirk1.jpeg"
+import nietzschesAntiDarwinism from "./assets/images/books/nad.jpg"
+import totalitarianismOnScreen from "./assets/images/books/tos.jpg"
 
 const COLORS = {
   uvaBlue: "#232D4B",
@@ -15,9 +18,7 @@ const NAV_LINKS = [
   { id: "about", label: "About" },
   { id: "courses", label: "Courses" },
   { id: "research", label: "Research" },
-  { id: "publications", label: "Publications" },
   { id: "cv", label: "CV" },
-  { id: "contact", label: "Contact" },
 ];
 
 const RESEARCH_FOCUS = [
@@ -31,16 +32,20 @@ const RESEARCH_FOCUS = [
 
 const TIMELINE = [
   {
-    date: "1983–1989",
-    text: "University of Munich study, followed by a Magister from the University of Bonn in political science, German, and philosophy.",
+    date: "1981–1985",
+    text: "B.A. from Bowdoin College, with high honors in both German and history. Studied at the University of Munich in 1983–84.",
   },
   {
-    date: "1996–2000",
-    text: "M.A. from Indiana University in 1996 and Ph.D. in German Studies in 2000.",
+    date: "1985–1992",
+    text: "Lived and worked in Bonn, Germany, receiving a Magister in political science, philosophy, and German from the University of Bonn in 1989. Served as research assistant to Dr. Hans-Peter Schwarz and as Office Manager of the Wall Street Journal/Europe.",
+  },
+  {
+    date: "1994–2000",
+    text: "Doctoral study at Indiana University. M.A. in 1996 and Ph.D. in German Studies in 2000, followed by a year as Lecturer in German.",
   },
   {
     date: "2001–2026",
-    text: "Joined Hampden-Sydney College in 2001 and retired from teaching there in 2026.",
+    text: "Assistant professor of German at Hampden-Sydney College, retiring from teaching there in 2026.",
   },
   {
     date: "Current",
@@ -111,19 +116,44 @@ const COURSES = [
   },
 ];
 
-const RESEARCH_THEMES = [
-  "Nietzsche, science, and modernity",
-  "German intellectual history",
-  "Literature, film, and cultural memory",
-  "Immersion learning and German pedagogy",
+const BOOK_PLACEHOLDER = "https://placehold.co/240x340/232D4B/F7F4EE?text=Cover";
+
+const BOOKS = [
+  {
+    title: "Nietzsche's Anti-Darwinism",
+    publisher: "Cambridge University Press, 2010",
+    url: "https://www.amazon.com/Nietzsches-Anti-Darwinism-Dirk-Johnson/dp/0521196787",
+    cover: nietzschesAntiDarwinism,
+    coverAlt: "Cover of Nietzsche's Anti-Darwinism",
+    description:
+      "Challenging the common assumption that Nietzsche's thought converged with Darwin's, Johnson argues that Nietzsche's own stated opposition to Darwin is central to understanding his philosophy, and offers a reinterpretation of the Genealogy of Morals as a critique of Darwinian naturalism rather than an endorsement of it.",
+  },
+  {
+    title:
+      "\u201cThe Tragic Ambiguity, or the Ambiguous Tragedy, of Christa-Maria Sieland,\u201d in Totalitarianism on Screen: The Art and Politics of The Lives of Others",
+    publisher: "University of Kentucky Press, 2014",
+    url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_558c84613dbb4a0fbd9d13ed0eb942ab.pdf",
+    cover: totalitarianismOnScreen,
+    coverAlt: "Cover of Totalitarianism on Screen",
+    description:
+      "Johnson's essay on the film The Lives of Others appears in this collection examining its art and politics.",
+  },
 ];
 
-const PUBLICATIONS = [
-  "Introduction to Nietzsche's Thus Spoke Zarathustra, Capstone Classics Edition, 2022",
-  "\u201cZarathustra: Nietzsche's Rendezvous with Eternity,\u201d The New Cambridge Companion to Nietzsche, 2019",
-  "\u201cThe Tragic Ambiguity, or the Ambiguous Tragedy, of Christa-Maria Sieland,\u201d in Totalitarianism on Screen: The Art and Politics of The Lives of Others, 2014",
-  "\u201cTranslating Nietzsche's Atheism(s): A World beyond the Ethical Imperative,\u201d The Agonist, 2023",
-  "\u201cJaspers' Reading of Nietzsche's Antichrist,\u201d Existenz, 2020",
+const REVIEWS = [
+  { name: "Journal of Nietzsche Studies", url: "http://www.hunter.cuny.edu/jns/reviews/dirk-s-johnson-nietzsches-anti-darwinism" },
+  { name: "Isis", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_a1b63ee883e04cffbd9fc8d76a605044.pdf" },
+  { name: "Environmental Philosophy", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_f87b9a327db8403792c2f57952a517d8.pdf" },
+  { name: "Quarterly Review of Biology", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_c0c69742efaa45fa9b1e0e1470db7493.pdf" },
+  { name: "Canadian Journal of History", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_7ef6590919244e5598effeae77d47b6d.pdf" },
+  { name: "Journal of the History of Philosophy", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_ad882ea5dd9f46c2a9857c3f4cc71e38.pdf" },
+  { name: "HOPOS", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_76d0b33d8a14440bb0526cac5cd26466.pdf" },
+  { name: "New Nietzsche Studies", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_0b01902e448f495d85277ecdc3d822ac.pdf" },
+  { name: "Nietzsche Studien", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_999f248426d542afbba7e1b3f2bf1920.pdf" },
+  { name: "Orbis Litterarum", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_bde464b75f1b4ceeb1f8c4160d830fb3.pdf" },
+  { name: "The European Legacy", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_c264d981529d4a9f9f25ce92d83d7cdd.pdf" },
+  { name: "Pli: Warwick Journal of Philosophy", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_1a19d4fce29b4bc2abe1a00fc1a06a14.pdf" },
+  { name: "Sven Gellens, friedrichnietzsche.nl", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_1a19d4fce29b4bc2abe1a00fc1a06a14.pdf" },
 ];
 
 export default function App() {
@@ -152,7 +182,7 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <a
             href="#home"
-            className="font-serif text-base font-bold tracking-tight sm:text-lg"
+            className="font-serif text-base font-bold tracking-tight sm:text-xl"
             style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
           >
             Dirk Johnson, PhD
@@ -203,24 +233,18 @@ export default function App() {
         <section id="home" className="scroll-mt-20 overflow-hidden" style={{ background: COLORS.uvaBlue }}>
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:py-24 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:px-8">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.22em]" style={{ color: COLORS.uvaOrange }}>
-                German Studies · Scholarship · Teaching
-              </p>
-              <div className="mt-5 h-[3px] w-16" style={{ background: COLORS.uvaOrange }} />
               <h1
-                className="mt-7 max-w-3xl text-3xl leading-tight font-bold"
+                className="max-w-6xl text-6xl leading-tight font-bold"
                 style={{ color: COLORS.ivory, fontFamily: '"Libre Baskerville", serif' }}
               >
                 Dirk Johnson, PhD
               </h1>
+              <div className="mt-5 h-[3px] w-16" style={{ background: COLORS.uvaOrange }} />
               <p className="mt-7 max-w-2xl text-lg font-semibold leading-8" style={{ color: COLORS.ivory }}>
                 Professor of German, General Faculty, University of Virginia
               </p>
               <p className="mt-2 max-w-2xl text-sm leading-7" style={{ color: "#DCE2EA" }}>
                 Emeritus Professor of German, Hampden-Sydney College
-              </p>
-              <p className="mt-7 max-w-2xl text-lg leading-8" style={{ color: COLORS.ivory }}>
-                Scholar and teacher of German language, literature, film, and intellectual history.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -237,7 +261,7 @@ export default function App() {
                   className="inline-flex items-center gap-2 rounded-sm border px-5 py-3 text-sm font-bold"
                   style={{ borderColor: "rgba(247,244,238,.62)", color: COLORS.ivory }}
                 >
-                  <span>View Courses</span>
+                  <span>Courses</span>
                   <BookOpen width={17} aria-hidden="true" />
                 </a>
                 <a
@@ -248,30 +272,17 @@ export default function App() {
                   <span>Research</span>
                   <Library width={17} aria-hidden="true" />
                 </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 rounded-sm border px-5 py-3 text-sm font-bold"
-                  style={{ borderColor: "rgba(247,244,238,.62)", color: COLORS.ivory }}
-                >
-                  <span>Contact</span>
-                  <Mail width={17} aria-hidden="true" />
-                </a>
               </div>
             </div>
 
             <figure className="relative mx-auto w-full max-w-md">
               <img
                 loading="lazy"
-                className="relative z-10 aspect-[4/5] w-full border object-cover grayscale"
-                src="https://images.pexels.com/photos/5589950/pexels-photo-5589950.jpeg"
-                alt="Portrait placeholder for Dirk Johnson, a scholar wearing glasses and holding a notebook."
+                className="relative z-10 aspect-[4/5] w-full object-cover drop-shadow-[0_1px_2px]"
+                style={{ color: COLORS.uvaOrange }}
+                src={dirkMainPhoto}
+                alt="Portrait of Dirk Johnson"
               />
-              <figcaption
-                className="relative z-10 mt-5 border-l-2 pl-4 text-sm leading-6 italic"
-                style={{ color: COLORS.ivory, borderColor: COLORS.uvaOrange }}
-              >
-                Dirk Johnson, PhD — German Studies scholar and teacher.
-              </figcaption>
             </figure>
           </div>
         </section>
@@ -295,18 +306,34 @@ export default function App() {
             <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_.85fr]">
               <div>
                 <p className="max-w-3xl leading-8">
-                  Born in Germany on a U.S. military base and raised in New York City, Dirk Johnson learned
-                  German during summers spent with relatives in Kronach, Bavaria. Those formative experiences
-                  established the bilingual and bicultural perspective that continues to animate his
-                  scholarship and teaching.
+                  Dirk Johnson was born in Germany on a U.S. military base — his father served as a doctor
+                  and his mother is a German native — and was raised in New York City, graduating from
+                  Trinity High School in 1981. Summers spent with German relatives in Kronach, a small
+                  medieval town in Upper Franconia, Bavaria, gave him an early command of the language.
                 </p>
                 <p className="mt-6 max-w-3xl leading-8">
-                  Johnson earned a B.A., magna cum laude, from Bowdoin College with high honors in German and
-                  history. He studied at the University of Munich in 1983–84, received a Magister from the
-                  University of Bonn in 1989 in political science, German, and philosophy, completed an M.A.
-                  at Indiana University in 1996, and earned his Ph.D. in German Studies in 2000. He joined
-                  Hampden-Sydney College in 2001, retired from teaching there in 2026, and now teaches German
-                  in the General Faculty at the University of Virginia.
+                  He double-majored in German and history, both with high honors, at Bowdoin College, and
+                  studied at the University of Munich in 1983–84. After graduating, he spent seven years
+                  working and studying in Bonn, earning a Magister in political science, philosophy, and
+                  German from the University of Bonn in 1989. While in Bonn, he served as a student and
+                  research assistant to political scientist Dr. Hans-Peter Schwarz, translated a book by
+                  political commentator Dr. Gerd Langguth, and worked as Office Manager of the Wall Street
+                  Journal/Europe.
+                </p>
+                <p className="mt-6 max-w-3xl leading-8">
+                  Johnson returned to the United States in 1992, working in New York City before beginning
+                  doctoral study at Indiana University in 1994. He completed his M.A. in 1996 and his Ph.D.
+                  in German Studies in 2000, then taught for a year as Lecturer in German at IU. In 2001 he
+                  joined the faculty of Hampden-Sydney College as assistant professor of German, retiring
+                  from teaching there in 2026. He now teaches German in the General Faculty at the
+                  University of Virginia and lives in Charlottesville with his wife and two sons.
+                </p>
+                <p className="mt-6 max-w-3xl leading-8">
+                  His research on Nietzsche and Darwin has appeared in peer-reviewed journals and been
+                  presented at Cambridge, St Andrews, and the Technical University of Berlin, among other
+                  venues; his monograph, Nietzsche's Anti-Darwinism, was published by Cambridge University
+                  Press in 2010. Alongside this work, he has written and presented on German film, including
+                  a contribution to a 2014 University of Kentucky Press volume on The Lives of Others.
                 </p>
               </div>
 
@@ -337,7 +364,7 @@ export default function App() {
               >
                 Education and academic career
               </h3>
-              <ol className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              <ol className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {TIMELINE.map((item) => (
                   <li
                     key={item.date}
@@ -397,87 +424,80 @@ export default function App() {
 
         {/* Research */}
         <section id="research" className="scroll-mt-20" style={{ background: COLORS.uvaBlue }}>
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:py-24 lg:grid-cols-[.78fr_1.22fr] lg:px-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[.22em]" style={{ color: COLORS.uvaOrange }}>
-                Research
-              </p>
-              <div className="mt-4 h-[3px] w-16" style={{ background: COLORS.uvaOrange }} />
-              <h2
-                className="mt-6 text-2xl leading-tight font-bold"
-                style={{ color: COLORS.ivory, fontFamily: '"Libre Baskerville", serif' }}
-              >
-                Scholarship at the intersection of philosophy, science, literature, and culture.
-              </h2>
-              <p className="mt-6 max-w-xl leading-8" style={{ color: COLORS.ivory }}>
-                Johnson's work examines the intellectual currents that shaped modern German thought, with
-                particular attention to Friedrich Nietzsche, Darwinism, literary culture, film, and the ethics
-                of historical representation.
-              </p>
-            </div>
+          <div className="mx-auto max-w-7xl px-5 py-16 sm:py-24 lg:px-8">
+            <p className="text-xs font-bold uppercase tracking-[.22em]" style={{ color: COLORS.uvaOrange }}>
+              Research
+            </p>
+            <div className="mt-4 h-[3px] w-16" style={{ background: COLORS.uvaOrange }} />
+            <h2
+              className="mt-6 max-w-2xl text-2xl leading-tight font-bold"
+              style={{ color: COLORS.ivory, fontFamily: '"Libre Baskerville", serif' }}
+            >
+              Nietzsche, Darwin, and German literary and film history.
+            </h2>
+            <p className="mt-6 max-w-xl leading-8" style={{ color: COLORS.ivory }}>
+              Johnson's scholarship centers on Nietzsche's relationship to Darwin, alongside broader work on
+              German literature, film, and cultural memory.
+            </p>
 
-            <article className="rounded-sm border p-7 sm:p-9" style={{ background: COLORS.ivory }}>
-              <p className="text-xs font-bold uppercase tracking-[.2em]" style={{ color: COLORS.uvaOrange }}>
-                Featured research
-              </p>
-              <h3
-                className="mt-4 text-lg leading-tight font-bold"
-                style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
-              >
-                Nietzsche's Anti-Darwinism
-              </h3>
-              <p className="mt-4 text-sm font-bold uppercase tracking-wider" style={{ color: COLORS.muted }}>
-                Cambridge University Press, 2010
-              </p>
-              <p className="mt-7 leading-8">
-                Nietzsche's Anti-Darwinism examines Nietzsche's relationship with Darwin and argues that
-                Nietzsche's explicitly stated anti-Darwinism is central to understanding his broader critique
-                of Darwinian thought and the Genealogy of Morals.
-              </p>
+            <div className="mt-12 grid gap-8 lg:grid-cols-[1.6fr_1fr] lg:items-start">
+              <div className="space-y-8">
+                {BOOKS.map((book) => (
+                  <article
+                    key={book.title}
+                    className="grid gap-7 rounded-sm border p-7 sm:grid-cols-[auto_1fr] sm:p-9"
+                    style={{ background: COLORS.ivory }}
+                  >
+                    <a
+                      href={book.url}
+                      className="mx-auto block w-40 shrink-0 transition-transform hover:-translate-y-1 sm:mx-0"
+                      aria-label={`View ${book.title}`}
+                    >
+                      <img
+                        src={book.cover}
+                        alt={book.coverAlt}
+                        className="w-full rounded-sm shadow-md"
+                      />
+                    </a>
+                    <div>
+                      <a
+                        href={book.url}
+                        className="text-lg font-bold leading-snug underline decoration-2 underline-offset-4"
+                        style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
+                      >
+                        {book.title}
+                      </a>
+                      <p className="mt-3 text-sm font-bold uppercase tracking-wider" style={{ color: COLORS.muted }}>
+                        {book.publisher}
+                      </p>
+                      <p className="mt-5 leading-8">{book.description}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
 
-              <div className="mt-8 border-t pt-6">
-                <h4
-                  className="font-bold"
+              <div className="rounded-sm border p-7 sm:p-9" style={{ background: COLORS.ivory }}>
+                <h3
+                  className="text-lg font-bold"
                   style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
                 >
-                  Related themes
-                </h4>
-                <ul className="mt-5 grid gap-3 text-sm leading-6 sm:grid-cols-2">
-                  {RESEARCH_THEMES.map((theme) => (
-                    <li key={theme} className="border-l-2 pl-3" style={{ borderColor: COLORS.uvaOrange }}>
-                      {theme}
+                  Reviews
+                </h3>
+                <ul className="mt-6 space-y-3 text-sm">
+                  {REVIEWS.map((review) => (
+                    <li key={review.name}>
+                      <a
+                        href={review.url}
+                        className="font-semibold underline decoration-2 underline-offset-4"
+                        style={{ color: COLORS.uvaOrange }}
+                      >
+                        {review.name}
+                      </a>
                     </li>
                   ))}
                 </ul>
               </div>
-            </article>
-          </div>
-        </section>
-
-        {/* Publications */}
-        <section id="publications" className="scroll-mt-20" style={{ background: COLORS.ivory }}>
-          <div className="mx-auto max-w-5xl px-5 py-16 sm:py-24 lg:px-8">
-            <p className="text-xs font-bold uppercase tracking-[.22em]" style={{ color: COLORS.uvaOrange }}>
-              Publications
-            </p>
-            <div className="mt-4 h-[3px] w-16" style={{ background: COLORS.uvaOrange }} />
-            <h2
-              className="mt-6 text-2xl leading-tight font-bold"
-              style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
-            >
-              Selected scholarly work
-            </h2>
-
-            <ol className="mt-10 space-y-4">
-              {PUBLICATIONS.map((pub, i) => (
-                <li
-                  key={i}
-                  className="rounded-sm border bg-white p-6 transition-transform hover:-translate-y-1"
-                >
-                  <p className="leading-7">{pub}</p>
-                </li>
-              ))}
-            </ol>
+            </div>
           </div>
         </section>
 
@@ -508,9 +528,9 @@ export default function App() {
                   Education
                 </h3>
                 <p className="mt-5 text-sm leading-7">
-                  B.A., magna cum laude, Bowdoin College, with high honors in German and history; University
-                  of Munich study, 1983–84; Magister, University of Bonn, 1989; M.A., Indiana University,
-                  1996; Ph.D. in German Studies, Indiana University, 2000.
+                  B.A., Bowdoin College, with high honors in German and history; University of Munich study,
+                  1983–84; Magister, University of Bonn, 1989; M.A., Indiana University, 1996; Ph.D. in
+                  German Studies, Indiana University, 2000.
                 </p>
               </article>
               <article className="rounded-sm border bg-white p-7">
@@ -540,77 +560,44 @@ export default function App() {
             </div>
           </div>
         </section>
-
-        {/* Contact */}
-        <section id="contact" className="scroll-mt-20" style={{ background: COLORS.ivory }}>
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:py-24 lg:grid-cols-[.85fr_1.15fr] lg:px-8">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[.22em]" style={{ color: COLORS.uvaOrange }}>
-                Contact
-              </p>
-              <div className="mt-4 h-[3px] w-16" style={{ background: COLORS.uvaOrange }} />
-              <h2
-                className="mt-6 text-2xl leading-tight font-bold"
-                style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
-              >
-                Academic inquiries and correspondence
-              </h2>
-              <p className="mt-6 max-w-xl leading-8">
-                For inquiries concerning German studies, teaching, scholarship, speaking, or academic
-                collaboration, please get in touch by email or telephone.
-              </p>
-            </div>
-
-            <address className="rounded-sm border bg-white p-7 shadow-sm not-italic sm:p-9">
-              <p className="text-sm font-bold uppercase tracking-[.15em]" style={{ color: COLORS.uvaBlue }}>
-                University of Virginia · General Faculty
-              </p>
-              <div className="mt-7 space-y-5 border-t pt-7">
-                <div className="flex gap-4">
-                  <Mail width={20} aria-hidden="true" />
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider" style={{ color: COLORS.muted }}>
-                      Email
-                    </p>
-                    <a
-                      href="mailto:ubc3au@virginia.edu"
-                      className="mt-1 inline-block font-semibold underline decoration-2 underline-offset-4"
-                      style={{ color: COLORS.uvaOrange }}
-                    >
-                      ubc3au@virginia.edu
-                    </a>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <Phone width={20} aria-hidden="true" />
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-wider" style={{ color: COLORS.muted }}>
-                      Telephone
-                    </p>
-                    <a
-                      href="tel:+14344145671"
-                      className="mt-1 inline-block font-semibold underline decoration-2 underline-offset-4"
-                      style={{ color: COLORS.uvaOrange }}
-                    >
-                      434-414-5671
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </address>
-          </div>
-        </section>
       </main>
 
       <footer style={{ background: COLORS.uvaBlue }}>
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 px-5 py-8 text-sm sm:flex-row sm:items-center lg:px-8">
-          <p
-            className="font-bold"
-            style={{ color: COLORS.ivory, fontFamily: '"Libre Baskerville", serif' }}
-          >
-            Dirk Johnson, PhD
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 py-9 sm:grid-cols-3 sm:items-center lg:px-8">
+          <div>
+            <p
+              className="font-bold"
+              style={{ color: COLORS.ivory, fontFamily: '"Libre Baskerville", serif' }}
+            >
+              Dirk Johnson, PhD
+            </p>
+            <p className="mt-1 text-sm" style={{ color: "#DCE2EA" }}>
+              University of Virginia · German Studies
+            </p>
+          </div>
+
+          <div className="flex flex-col items-start gap-2 text-sm sm:items-center">
+            <a
+              href="mailto:ubc3au@virginia.edu"
+              className="inline-flex items-center gap-2 font-semibold"
+              style={{ color: COLORS.ivory }}
+            >
+              <Mail width={16} aria-hidden="true" style={{ color: COLORS.uvaOrange }} />
+              <span>ubc3au@virginia.edu</span>
+            </a>
+            <a
+              href="tel:+14344145671"
+              className="inline-flex items-center gap-2 font-semibold"
+              style={{ color: COLORS.ivory }}
+            >
+              <Phone width={16} aria-hidden="true" style={{ color: COLORS.uvaOrange }} />
+              <span>434-414-5671</span>
+            </a>
+          </div>
+
+          <p className="text-sm sm:text-right" style={{ color: "#DCE2EA" }}>
+            © {new Date().getFullYear()} Dirk Johnson
           </p>
-          <p style={{ color: "#DCE2EA" }}>University of Virginia · German Studies</p>
         </div>
       </footer>
     </div>
