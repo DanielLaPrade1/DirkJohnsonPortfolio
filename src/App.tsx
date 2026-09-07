@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import { Menu, ArrowDownRight, BookOpen, Library, Mail, Phone } from "lucide-react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { Menu, X, ArrowDownRight, ArrowUpRight, BookOpen, Library, Mail, Phone, ChevronLeft, ChevronRight } from "lucide-react";
+
+import { COLORS } from "./data/colors";
+import PhotoCarousel from "./components/PhotoCarousel";
+
 import dirkMainPhoto from "./assets/images/personal/dirk1.jpeg"
 import nietzschesAntiDarwinism from "./assets/images/books/nad.jpg"
 import totalitarianismOnScreen from "./assets/images/books/tos.jpg"
-
-const COLORS = {
-  uvaBlue: "#232D4B",
-  uvaOrange: "#E57200",
-  ivory: "#F7F4EE",
-  mist: "#EEF1F5",
-  ink: "#20283D",
-  muted: "#586176",
-};
+import k1 from "./assets/images/kronach/k1.jpeg"
+import k2 from "./assets/images/kronach/k2.jpeg"
+import k3 from "./assets/images/kronach/k3.jpeg"
+import k4 from "./assets/images/kronach/k4.jpeg"
+import k5 from "./assets/images/kronach/k5.jpeg"
+import k6 from "./assets/images/kronach/k6.jpeg"
 
 const NAV_LINKS = [
   { id: "home", label: "Home" },
@@ -21,13 +22,13 @@ const NAV_LINKS = [
   { id: "cv", label: "CV" },
 ];
 
-const RESEARCH_FOCUS = [
-  "Friedrich Nietzsche",
-  "Nietzsche and Darwin",
-  "German literature and intellectual history",
-  "German film and culture",
-  "Holocaust representation",
-  "German-language pedagogy and immersion learning",
+const PHOTOS = [
+  { src: k1, alt: "Kronach Photo #1" },
+  { src: k2, alt: "Kronach Photo #2" },
+  { src: k3, alt: "Kronach Photo #3" },
+  { src: k4, alt: "Kronach Photo #4" },
+  { src: k5, alt: "Kronach Photo #5" },
+  { src: k6, alt: "Kronach Photo #6" },
 ];
 
 const TIMELINE = [
@@ -156,10 +157,18 @@ const REVIEWS = [
   { name: "Sven Gellens, friedrichnietzsche.nl", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_1a19d4fce29b4bc2abe1a00fc1a06a14.pdf" },
 ];
 
+
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <div
@@ -182,7 +191,7 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <a
             href="#home"
-            className="font-serif text-base font-bold tracking-tight sm:text-xl"
+            className="font-serif text-base font-bold tracking-tight sm:text-lg"
             style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
           >
             Dirk Johnson, PhD
@@ -205,25 +214,38 @@ export default function App() {
 
           <button
             type="button"
-            className="rounded-sm p-2 lg:hidden"
+            className="relative z-50 rounded-sm p-2 lg:hidden"
             aria-controls="mobile-menu"
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <Menu width={23} height={23} aria-hidden="true" />
+            {menuOpen ? (
+              <X width={23} height={23} aria-hidden="true" />
+            ) : (
+              <Menu width={23} height={23} aria-hidden="true" />
+            )}
           </button>
         </div>
 
         {menuOpen && (
-          <nav id="mobile-menu" className="border-t px-5 py-4 lg:hidden" aria-label="Mobile navigation">
-            <div className="grid grid-cols-2 gap-x-5 gap-y-4 text-sm font-bold">
-              {NAV_LINKS.map((link) => (
-                <a key={link.id} href={`#${link.id}`} onClick={closeMenu}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
+          <nav
+            id="mobile-menu"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 lg:hidden"
+            style={{ background: COLORS.uvaBlue }}
+            aria-label="Mobile navigation"
+          >
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={closeMenu}
+                className="text-2xl font-bold uppercase tracking-wider"
+                style={{ color: COLORS.ivory, fontFamily: '"Libre Baskerville", serif' }}
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
         )}
       </header>
@@ -232,22 +254,22 @@ export default function App() {
         {/* Hero */}
         <section id="home" className="scroll-mt-20 overflow-hidden" style={{ background: COLORS.uvaBlue }}>
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:py-24 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:px-8">
-            <div>
+            <div className="sm:text-left md:text-center lg:text-left">
               <h1
-                className="max-w-6xl text-6xl leading-tight font-bold"
+                className="max-w-6xl text-4xl sm:text-5xl lg:text-6xl leading-tight font-bold"
                 style={{ color: COLORS.ivory, fontFamily: '"Libre Baskerville", serif' }}
               >
                 Dirk Johnson, PhD
               </h1>
-              <div className="mt-5 h-[3px] w-16" style={{ background: COLORS.uvaOrange }} />
-              <p className="mt-7 max-w-2xl text-lg font-semibold leading-8" style={{ color: COLORS.ivory }}>
+              <div className="mx-auto mt-5 h-[3px] w-16 lg:mx-0" style={{ background: COLORS.uvaOrange }} />
+              <p className="mx-auto mt-7 max-w-2xl text-xl font-semibold leading-8 lg:mx-0" style={{ color: COLORS.ivory }}>
                 Professor of German, General Faculty, University of Virginia
               </p>
-              <p className="mt-2 max-w-2xl text-sm leading-7" style={{ color: "#DCE2EA" }}>
+              <p className="mx-auto mt-2 max-w-2xl text-md leading-7 lg:mx-0" style={{ color: "#DCE2EA" }}>
                 Emeritus Professor of German, Hampden-Sydney College
               </p>
 
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-wrap sm:justify-start md:justify-center gap-3 lg:justify-start">
                 <a
                   href="#about"
                   className="inline-flex items-center gap-2 rounded-sm px-5 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5"
@@ -275,7 +297,7 @@ export default function App() {
               </div>
             </div>
 
-            <figure className="relative mx-auto w-full max-w-md">
+            <figure className="relative mx-auto w-full max-w-sm">
               <img
                 loading="lazy"
                 className="relative z-10 aspect-[4/5] w-full object-cover drop-shadow-[0_1px_2px]"
@@ -307,7 +329,7 @@ export default function App() {
               <div>
                 <p className="max-w-3xl leading-8">
                   Dirk Johnson was born in Germany on a U.S. military base — his father served as a doctor
-                  and his mother is a German native — and was raised in New York City, graduating from
+                  and his mother is a German native. He was raised in New York City, graduating from
                   Trinity High School in 1981. Summers spent with German relatives in Kronach, a small
                   medieval town in Upper Franconia, Bavaria, gave him an early command of the language.
                 </p>
@@ -337,24 +359,22 @@ export default function App() {
                 </p>
               </div>
 
-              <aside className="rounded-sm border bg-white p-7 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-[.18em]" style={{ color: COLORS.uvaOrange }}>
-                  Research focus
-                </p>
-                <h3
-                  className="mt-3 text-lg font-bold"
-                  style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
+               <div>
+                <PhotoCarousel photos={PHOTOS} />
+
+                <blockquote
+                  className="mt-6 border-l-4 pl-5"
+                  style={{ borderColor: COLORS.uvaOrange }}
                 >
-                  Questions pursued across disciplines
-                </h3>
-                <ul className="mt-6 space-y-3 border-t pt-5 text-sm leading-6">
-                  {RESEARCH_FOCUS.map((item) => (
-                    <li key={item} className="border-l-2 pl-3" style={{ borderColor: COLORS.uvaOrange }}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </aside>
+                  <p
+                    className="text-lg italic leading-8"
+                    style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
+                  >
+                    "I grew up in New York City. During the summers, I stayed with relatives in Kronach, a
+                    picturesque medieval town in Northern Bavaria."
+                  </p>
+                </blockquote>
+              </div>
             </div>
 
             <div className="mt-12">
@@ -557,6 +577,16 @@ export default function App() {
                   of German language, media, culture, and history.
                 </p>
               </article>
+            </div>
+            <div className="mt-12 flex">
+              <a
+                href="https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_9bcfdf7c824848ee955641cb77e1e2f9.pdf"
+                className="inline-flex items-center gap-2 rounded-sm px-6 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5"
+                style={{ background: COLORS.uvaOrange, color: "#fff" }}
+              >
+                <span>View Full German CV</span>
+                <ArrowUpRight width={17} aria-hidden="true"></ArrowUpRight>
+              </a>
             </div>
           </div>
         </section>
