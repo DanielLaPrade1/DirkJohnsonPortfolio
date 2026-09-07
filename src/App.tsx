@@ -5,6 +5,7 @@ import { COLORS } from "./data/colors";
 import PhotoCarousel from "./components/PhotoCarousel";
 
 import dirkMainPhoto from "./assets/images/personal/dirk1.jpeg"
+import dirkCVPhoto from "./assets/images/personal/dirk2.jpeg"
 import nietzschesAntiDarwinism from "./assets/images/books/nad.jpg"
 import totalitarianismOnScreen from "./assets/images/books/tos.jpg"
 import k1 from "./assets/images/kronach/k1.jpeg"
@@ -192,7 +193,7 @@ export default function App() {
             className="font-serif text-base font-bold tracking-tight sm:text-lg"
             style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
           >
-            Dirk Johnson, PhD
+            Dirk Johnson - Professor of German
           </a>
 
           <nav className="hidden items-center gap-5 text-xs font-bold uppercase tracking-wider lg:flex" aria-label="Primary navigation">
@@ -521,17 +522,40 @@ export default function App() {
 
         {/* CV */}
         <section id="cv" className="scroll-mt-20 border-y" style={{ background: COLORS.mist }}>
-          <div className="mx-auto max-w-7xl px-5 py-16 sm:py-24 lg:px-8">
-            <p className="text-xs font-bold uppercase tracking-[.22em]" style={{ color: COLORS.uvaOrange }}>
+          <div className="relative mx-auto max-w-7xl px-5 py-16 sm:py-24 lg:px-8">
+            {/* Top-right image placeholder */}
+            <div className="mb-8 flex justify-center lg:absolute lg:right-8 lg:top-8 lg:mb-0">
+              <div className="h-40 w-40 overflow-hidden rounded-sm border border-gray-300 bg-gray-200 sm:h-48 sm:w-48">
+                <img
+                  src={dirkCVPhoto}
+                  alt="Professor"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+
+            <p
+              className="text-xs font-bold uppercase tracking-[.22em]"
+              style={{ color: COLORS.uvaOrange }}
+            >
               Curriculum vitae
             </p>
-            <div className="mt-4 h-[3px] w-16" style={{ background: COLORS.uvaOrange }} />
+
+            <div
+              className="mt-4 h-[3px] w-16"
+              style={{ background: COLORS.uvaOrange }}
+            />
+
             <h2
               className="mt-6 text-2xl leading-tight font-bold"
-              style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
+              style={{
+                color: COLORS.uvaBlue,
+                fontFamily: '"Libre Baskerville", serif',
+              }}
             >
               Academic record and leadership
             </h2>
+
             <p className="mt-5 max-w-3xl leading-8">
               A concise overview of education, academic appointments, and long-standing leadership in
               immersive German study.
