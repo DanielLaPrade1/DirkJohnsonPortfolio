@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Menu, X, ArrowDownRight, ArrowUpRight, BookOpen, Library, Mail, Phone, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, ArrowDownRight, ArrowUpRight, BookOpen, Library, Mail, Phone } from "lucide-react";
 
 import { COLORS } from "./data/colors";
 import PhotoCarousel from "./components/PhotoCarousel";
@@ -116,8 +116,6 @@ const COURSES = [
       "Examines Berlin's modern transformation through literature, film, art, war, revolution, economic crisis, and political radicalism. Conducted in German.",
   },
 ];
-
-const BOOK_PLACEHOLDER = "https://placehold.co/240x340/232D4B/F7F4EE?text=Cover";
 
 const BOOKS = [
   {
