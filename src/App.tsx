@@ -153,7 +153,7 @@ const REVIEWS = [
   { name: "Orbis Litterarum", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_bde464b75f1b4ceeb1f8c4160d830fb3.pdf" },
   { name: "The European Legacy", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_c264d981529d4a9f9f25ce92d83d7cdd.pdf" },
   { name: "Pli: Warwick Journal of Philosophy", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_1a19d4fce29b4bc2abe1a00fc1a06a14.pdf" },
-  { name: "Sven Gellens, friedrichnietzsche.nl", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_1a19d4fce29b4bc2abe1a00fc1a06a14.pdf" },
+  { name: "Sven Gellens, friedrichnietzsche.nl", url: "https://friedrichnietzsche.nl/nietzsche-recensies/nietzsches-anti-darwinism/" },
 ];
 
 
@@ -320,7 +320,7 @@ export default function App() {
                 className="mt-6 text-2xl leading-tight font-bold"
                 style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
               >
-                A life in German language, culture, and intellectual history.
+                A life in German language, culture, and intellectual history
               </h2>
             </div>
 
@@ -412,7 +412,7 @@ export default function App() {
               className="mt-6 text-2xl leading-tight font-bold"
               style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
             >
-              Teaching German through language, culture, literature, and film.
+              Teaching German through language, culture, literature, and film
             </h2>
             <p className="mt-5 max-w-3xl leading-8">
               Course offerings move from foundational language instruction to advanced study of German
@@ -452,7 +452,7 @@ export default function App() {
               className="mt-6 max-w-2xl text-2xl leading-tight font-bold"
               style={{ color: COLORS.ivory, fontFamily: '"Libre Baskerville", serif' }}
             >
-              Nietzsche, Darwin, and German literary and film history.
+              Nietzsche, Darwin, and German literary and film history
             </h2>
             <p className="mt-6 max-w-xl leading-8" style={{ color: COLORS.ivory }}>
               Johnson's scholarship centers on Nietzsche's relationship to Darwin, alongside broader work on
@@ -520,98 +520,111 @@ export default function App() {
           </div>
         </section>
 
-        {/* CV */}
-        <section id="cv" className="scroll-mt-20 border-y" style={{ background: COLORS.mist }}>
-          <div className="relative mx-auto max-w-7xl px-5 py-16 sm:py-24 lg:px-8">
-            {/* Top-right image placeholder */}
-            <div className="mb-8 flex justify-center lg:absolute lg:right-8 lg:top-8 lg:mb-0">
-              <div className="h-40 w-40 overflow-hidden rounded-sm border border-gray-300 bg-gray-200 sm:h-48 sm:w-48">
-                <img
-                  src={dirkCVPhoto}
-                  alt="Professor"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
+{/* CV */}
+<section id="cv" className="scroll-mt-20 border-y" style={{ background: COLORS.mist }}>
+  <div className="relative mx-auto max-w-7xl px-5 py-16 sm:py-24 lg:px-8">
+    {/* Top-right image placeholder */}
+    <div className="mb-8 flex justify-center lg:absolute lg:right-8 lg:top-8 lg:mb-0">
+      <div className="h-40 w-40 overflow-hidden rounded-sm border border-gray-300 bg-gray-200 sm:h-48 sm:w-48">
+        <img
+          src={dirkCVPhoto}
+          alt="Professor"
+          className="h-full w-full object-cover"
+        />
+      </div>
+    </div>
 
-            <p
-              className="text-xs font-bold uppercase tracking-[.22em]"
-              style={{ color: COLORS.uvaOrange }}
-            >
-              Curriculum vitae
-            </p>
+    <p
+      className="text-xs font-bold uppercase tracking-[.22em]"
+      style={{ color: COLORS.uvaOrange }}
+    >
+      Curriculum vitae
+    </p>
 
-            <div
-              className="mt-4 h-[3px] w-16"
-              style={{ background: COLORS.uvaOrange }}
-            />
+    <div
+      className="mt-4 h-[3px] w-16"
+      style={{ background: COLORS.uvaOrange }}
+    />
 
-            <h2
-              className="mt-6 text-2xl leading-tight font-bold"
-              style={{
-                color: COLORS.uvaBlue,
-                fontFamily: '"Libre Baskerville", serif',
-              }}
-            >
-              Academic record and leadership
-            </h2>
+    <h2
+      className="mt-6 text-2xl leading-tight font-bold"
+      style={{
+        color: COLORS.uvaBlue,
+        fontFamily: '"Libre Baskerville", serif',
+      }}
+    >
+      Academic record and leadership
+    </h2>
 
-            <p className="mt-5 max-w-3xl leading-8">
-              A concise overview of education, academic appointments, and long-standing leadership in
-              immersive German study.
-            </p>
+    <p className="mt-5 max-w-3xl leading-8">
+      A concise overview of education, academic appointments, and long-standing leadership in
+      immersive German study.
+    </p>
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-3">
-              <article className="rounded-sm border bg-white p-7">
-                <h3
-                  className="text-lg font-bold"
-                  style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
-                >
-                  Education
-                </h3>
-                <p className="mt-5 text-sm leading-7">
-                  B.A., Bowdoin College, with high honors in German and history; University of Munich study,
-                  1983–84; Magister, University of Bonn, 1989; M.A., Indiana University, 1996; Ph.D. in
-                  German Studies, Indiana University, 2000.
-                </p>
-              </article>
-              <article className="rounded-sm border bg-white p-7">
-                <h3
-                  className="text-lg font-bold"
-                  style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
-                >
-                  Academic appointments
-                </h3>
-                <p className="mt-5 text-sm leading-7">
-                  Joined Hampden-Sydney College in 2001 and retired from teaching there in 2026. Professor of
-                  German in the General Faculty at the University of Virginia.
-                </p>
-              </article>
-              <article className="rounded-sm border bg-white p-7">
-                <h3
-                  className="text-lg font-bold"
-                  style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
-                >
-                  Münster Summer Program
-                </h3>
-                <p className="mt-5 text-sm leading-7">
-                  Directed the Münster Summer Program for more than fifteen years, supporting immersive study
-                  of German language, media, culture, and history.
-                </p>
-              </article>
-            </div>
-            <div className="mt-12 flex">
-              <a
-                href="https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_9bcfdf7c824848ee955641cb77e1e2f9.pdf"
-                className="inline-flex items-center gap-2 rounded-sm px-6 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5"
-                style={{ background: COLORS.uvaOrange, color: "#fff" }}
-              >
-                <span>View Full German CV</span>
-                <ArrowUpRight width={17} aria-hidden="true"></ArrowUpRight>
-              </a>
-            </div>
-          </div>
-        </section>
+    <div className="mt-10 grid gap-5 lg:grid-cols-3">
+      <article className="rounded-sm border bg-white p-7">
+        <h3
+          className="text-lg font-bold"
+          style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
+        >
+          Education
+        </h3>
+        <p className="mt-5 text-sm leading-7">
+          B.A., Bowdoin College, with high honors in German and history; University of Munich study,
+          1983–84; Magister, University of Bonn, 1989; M.A., Indiana University, 1996; Ph.D. in
+          German Studies, Indiana University, 2000.
+        </p>
+      </article>
+      <article className="rounded-sm border bg-white p-7">
+        <h3
+          className="text-lg font-bold"
+          style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
+        >
+          Academic appointments
+        </h3>
+        <p className="mt-5 text-sm leading-7">
+          Joined Hampden-Sydney College in 2001 and retired from teaching there in 2026. Professor of
+          German in the General Faculty at the University of Virginia.
+        </p>
+      </article>
+      <article className="rounded-sm border bg-white p-7">
+        <h3
+          className="text-lg font-bold"
+          style={{ color: COLORS.uvaBlue, fontFamily: '"Libre Baskerville", serif' }}
+        >
+          Münster Summer Program
+        </h3>
+        <p className="mt-5 text-sm leading-7">
+          Directed the Münster Summer Program for more than fifteen years, supporting immersive study
+          of German language, media, culture, and history.
+        </p>
+      </article>
+    </div>
+    <div className="mt-12 flex flex-wrap gap-4">
+      <a
+        href="DJCV.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 rounded-sm px-6 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5"
+        style={{ background: COLORS.uvaOrange, color: "#fff" }}
+      >
+        <span>View Full English CV</span>
+        <ArrowUpRight width={17} aria-hidden="true" />
+      </a>
+      <a
+      
+        href="https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_9bcfdf7c824848ee955641cb77e1e2f9.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 rounded-sm px-6 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5"
+        style={{ background: COLORS.uvaOrange, color: "#fff" }}
+      >
+        <span>View Full German CV</span>
+        <ArrowUpRight width={17} aria-hidden="true" />
+      </a>
+    </div>
+  </div>
+</section>
       </main>
 
       <footer style={{ background: COLORS.uvaBlue }}>
@@ -623,8 +636,11 @@ export default function App() {
             >
               Dirk Johnson, PhD
             </p>
-            <p className="mt-1 text-sm" style={{ color: "#DCE2EA" }}>
-              University of Virginia · German Studies
+            <p className="mt-1 text-xs" style={{ color: "#DCE2EA" }}>
+              University of Virginia
+            </p>
+            <p className="mt-1 text-xs" style={{ color: "#DCE2EA" }}>
+              Department of Germanic Languages and Literatures
             </p>
           </div>
 
