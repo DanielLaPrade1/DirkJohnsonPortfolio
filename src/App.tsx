@@ -141,7 +141,7 @@ const BOOKS = [
 ];
 
 const REVIEWS = [
-  { name: "Journal of Nietzsche Studies", url: "http://www.hunter.cuny.edu/jns/reviews/dirk-s-johnson-nietzsches-anti-darwinism" },
+  { name: "Journal of Nietzsche Studies", url: "JNS.pdf" },
   { name: "Isis", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_a1b63ee883e04cffbd9fc8d76a605044.pdf" },
   { name: "Environmental Philosophy", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_f87b9a327db8403792c2f57952a517d8.pdf" },
   { name: "Quarterly Review of Biology", url: "https://57d1520d-03a5-43bf-ad5f-b5dda0c4414d.filesusr.com/ugd/e300f2_c0c69742efaa45fa9b1e0e1470db7493.pdf" },
