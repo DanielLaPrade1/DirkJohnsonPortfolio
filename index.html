@@ -2,12 +2,108 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dirk Johnson, PhD</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>Dirk Johnson, PhD | Professor of German, University of Virginia</title>
+    <meta
+      name="description"
+      content="Dirk Johnson, PhD, Professor of German at the University of Virginia and author of Nietzsche's Anti-Darwinism (Cambridge University Press). Courses, research, and CV."
+    />
+    <meta name="author" content="Dirk Johnson" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#232D4B" />
+    <link rel="canonical" href="https://example.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Dirk Johnson, PhD" />
+    <meta property="og:title" content="Dirk Johnson, PhD | Professor of German, University of Virginia" />
+    <meta
+      property="og:description"
+      content="Professor of German at the University of Virginia. Author of Nietzsche's Anti-Darwinism (Cambridge University Press). Courses, research, and CV."
+    />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:image" content="https://example.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Portrait of Dirk Johnson, Professor of German" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Dirk" />
+    <meta property="profile:last_name" content="Johnson" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dirk Johnson, PhD | Professor of German, University of Virginia" />
+    <meta
+      name="twitter:description"
+      content="Professor of German at the University of Virginia. Author of Nietzsche's Anti-Darwinism (Cambridge University Press)."
+    />
+    <meta name="twitter:image" content="https://example.com/og-image.jpg" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://example.com/#profilepage",
+            "url": "https://example.com/",
+            "name": "Dirk Johnson, PhD | Professor of German, University of Virginia",
+            "inLanguage": "en",
+            "mainEntity": { "@id": "https://example.com/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://example.com/#person",
+            "name": "Dirk Johnson",
+            "honorificSuffix": "PhD",
+            "jobTitle": "Professor of German",
+            "description": "Professor of German in the General Faculty at the University of Virginia, specializing in Nietzsche, Darwin, and German literature and film.",
+            "url": "https://example.com/",
+            "image": "https://example.com/og-image.jpg",
+            "worksFor": {
+              "@type": "CollegeOrUniversity",
+              "name": "University of Virginia",
+              "url": "https://www.virginia.edu/"
+            },
+            "affiliation": {
+              "@type": "CollegeOrUniversity",
+              "name": "Hampden-Sydney College"
+            },
+            "alumniOf": [
+              { "@type": "CollegeOrUniversity", "name": "Bowdoin College" },
+              { "@type": "CollegeOrUniversity", "name": "University of Bonn" },
+              { "@type": "CollegeOrUniversity", "name": "Indiana University" }
+            ],
+            "knowsAbout": [
+              "German studies",
+              "Friedrich Nietzsche",
+              "Charles Darwin",
+              "German literature",
+              "German film",
+              "Holocaust representation in German literature"
+            ],
+            "knowsLanguage": ["en", "de"]
+          },
+          {
+            "@type": "Book",
+            "@id": "https://example.com/#book-nietzsches-anti-darwinism",
+            "name": "Nietzsche's Anti-Darwinism",
+            "author": { "@id": "https://example.com/#person" },
+            "publisher": { "@type": "Organization", "name": "Cambridge University Press" },
+            "datePublished": "2010",
+            "isbn": "9780521196789",
+            "inLanguage": "en",
+            "sameAs": "https://www.amazon.com/Nietzsches-Anti-Darwinism-Dirk-Johnson/dp/0521196787"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
